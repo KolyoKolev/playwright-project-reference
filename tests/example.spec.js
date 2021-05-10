@@ -24,9 +24,7 @@ describe('Example spec using chrome and playwright', () => {
   });
 
   it('should login sucessfully in saucedemo page', async () => {
-    expect(await page.url()).to.equal(
-      'https://www.saucedemo.com/inventory.html'
-    );
+    expect(await page.url()).to.eq('https://www.saucedemo.com/inventory.html');
   });
 
   it('should verify the number of inventory items', async () => {
@@ -39,5 +37,15 @@ describe('Example spec using chrome and playwright', () => {
     expect(await inventoryItemsName[0].textContent()).to.eq(
       'Sauce Labs Backpack'
     );
+  });
+
+  it('should verify added item to the cart', async () => {
+    await page.click('[data-test="add-to-cart-sauce-labs-backpack"]');
+    const cartBadge = await page.$('.shopping_cart_badge');
+    expect(await cartBadge.textContent()).to.eq('1');
+    await page.click('.shopping_cart_link');
+    expect(await page.$$('.cart_item')).to.have.length(1);
+    const inventoryItemName = await page.$('.inventory_item_name');
+    expect(await inventoryItemName.textContent()).to.eq('Sauce Labs Backpack');
   });
 });
