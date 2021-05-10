@@ -4,12 +4,9 @@ let page, browser, context;
 
 const SAUCE_LOGIN = async () => {
   await page.goto('https://www.saucedemo.com/');
-  const username = await page.$('[data-test="username"]');
-  await username.type('standard_user');
-  const password = await page.$('[data-test="password"]');
-  await password.type('secret_sauce');
-  const loginBtn = await page.$('[data-test="login-button"]');
-  await loginBtn.click();
+  await page.fill('[data-test="username"]', 'standard_user');
+  await page.fill('[data-test="password"]', 'secret_sauce');
+  await page.click('[data-test="login-button"]');
 };
 
 describe('Example spec using chrome and playwright', () => {
