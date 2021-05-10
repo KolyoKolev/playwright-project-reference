@@ -23,7 +23,7 @@ describe('Example spec using chrome and playwright', () => {
     await browser.close();
   });
 
-  it('should login sucessfully in saucedemo page', async () => {
+  it('should login sucessfully in saucedemo inventory page', async () => {
     expect(await page.url()).to.eq('https://www.saucedemo.com/inventory.html');
   });
 
