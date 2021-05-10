@@ -1,0 +1,17 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "description": "Playwright test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./tests/example.spec.js"
+  },
+  "author": "Kolyo Kolev",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0",
+    "playwright": "^1.10.0",
+    "playwright-core": "^1.10.0"
+  }
+}
