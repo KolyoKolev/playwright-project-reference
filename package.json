@@ -11,7 +11,7 @@
   "devDependencies": {
     "chai": "^4.3.4",
     "mocha": "^8.4.0",
-    "playwright": "^1.10.0",
-    "playwright-core": "^1.10.0"
+    "playwright": "^1.11.0",
+    "playwright-core": "^1.11.0"
   }
 }
