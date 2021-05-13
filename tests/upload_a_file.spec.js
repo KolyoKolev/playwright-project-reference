@@ -4,20 +4,25 @@ let page, browser, context;
 
 const helloWorldFilePath = './tests/docs/hello_world.txt';
 
-it('should drag and drop a single file', async () => {
-  browser = await playwright['chromium'].launch({ headless: false });
-  context = await browser.newContext();
-  page = await context.newPage();
+describe('Files upload', () => {
+  beforeEach('should load test page', async () => {
+    browser = await playwright['chromium'].launch({ headless: false });
+    context = await browser.newContext();
+    page = await context.newPage();
 
-  await page.goto('https://the-internet.herokuapp.com/upload');
-
-  page.on('filechooser', async (fileChooser) => {
-    await fileChooser.setFiles(helloWorldFilePath);
+    await page.goto('https://the-internet.herokuapp.com/upload');
   });
 
-  await page.click('#drag-drop-upload');
+  it('should drag and drop a single file', async () => {
+    page.on('filechooser', async (fileChooser) => {
+      await fileChooser.setFiles(helloWorldFilePath);
+    });
+    await page.click('#drag-drop-upload');
+  });
 
-  await page.close();
-  await context.close();
-  await browser.close();
+  afterEach('should close everything', async () => {
+    await page.close();
+    await context.close();
+    await browser.close();
+  });
 });
