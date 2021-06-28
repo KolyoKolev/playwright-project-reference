@@ -6,7 +6,7 @@ const helloWorldFilePath = './tests/docs/hello_world.txt';
 const helloWorld2FilePath = './tests/docs/hello_world_2.txt';
 const dragAndDropArea = '#drag-drop-upload';
 
-describe('Files upload', () => {
+describe('Upload files', () => {
   beforeEach('should load test page', async () => {
     browser = await playwright['chromium'].launch({ headless: false });
     context = await browser.newContext();
