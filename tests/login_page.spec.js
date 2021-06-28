@@ -9,7 +9,7 @@ const SAUCE_LOGIN = async () => {
   await page.click('[data-test="login-button"]');
 };
 
-describe('Example spec using chrome and playwright', () => {
+describe('Login page', () => {
   beforeEach(async () => {
     browser = await playwright['chromium'].launch({ headless: false });
     context = await browser.newContext();
