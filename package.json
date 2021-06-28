@@ -4,7 +4,7 @@
   "description": "Playwright test project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./tests/example.spec.js --timeout 10000"
+    "test": "mocha ./tests/*.spec.js --timeout 20000"
   },
   "author": "Kolyo Kolev",
   "license": "ISC",
